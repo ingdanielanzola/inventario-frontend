@@ -30,14 +30,14 @@ export class ProductosComponent implements OnInit {
   }
 
   cargar(): void {
-  this.http.get<any[]>('http://localhost:8080/api/productos').subscribe(data => {
+  this.http.get<any[]>('https://inventario-backend-production-102b.up.railway.app/api/productos').subscribe(data => {
     this.productos = data;
     this.cd.detectChanges();
   });
 }
 
   agregar(): void {
-    this.http.post('http://localhost:8080/api/productos', this.nuevoProducto).subscribe(() => {
+    this.http.post('https://inventario-backend-production-102b.up.railway.app/api/productos', this.nuevoProducto).subscribe(() => {
       this.cargar();
       this.nuevoProducto = { nombre: '', categoria: '', precio: 0, stock: 0 };
     });
@@ -48,7 +48,7 @@ export class ProductosComponent implements OnInit {
   }
 
   guardar(): void {
-    this.http.put(`http://localhost:8080/api/productos/${this.productoEditando.id}`, this.productoEditando).subscribe(() => {
+    this.http.put(`https://inventario-backend-production-102b.up.railway.app/api/productos/${this.productoEditando.id}`, this.productoEditando).subscribe(() => {
       this.cargar();
       this.editando = false;
     });
@@ -58,7 +58,7 @@ export class ProductosComponent implements OnInit {
     this.editando = false;
   }
   eliminar(id: number): void {
-    this.http.delete(`http://localhost:8080/api/productos/${id}`).subscribe(() => {
+    this.http.delete(`https://inventario-backend-production-102b.up.railway.app/api/productos/${id}`).subscribe(() => {
       this.cargar();
     });
   }
