@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'https://inventario-backend-production-102b.up.railway.appp/api/auth';
+  private apiUrl = 'https://inventario-backend-production-102b.up.railway.app/api/auth';
 
   constructor(private http: HttpClient) {}
 
