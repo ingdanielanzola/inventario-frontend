@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-productos',
@@ -16,7 +18,12 @@ export class ProductosComponent implements OnInit {
   nuevoProducto = { nombre: '', categoria: '', precio: 0, stock: 0 };
   editando: boolean = false;
   productoEditando: any = { nombre: '', categoria: '', precio: 0, stock: 0 }; 
-  constructor(private http: HttpClient, private cd: ChangeDetectorRef) {}
+  constructor(
+  private http: HttpClient, 
+  private cd: ChangeDetectorRef,
+  private authService: AuthService,
+  private router: Router
+) {}
 
   ngOnInit(): void {
     this.cargar();
@@ -55,4 +62,8 @@ export class ProductosComponent implements OnInit {
       this.cargar();
     });
   }
+  cerrarSesion(): void {
+  this.authService.cerrarSesion();
+  this.router.navigate(['/login']);
+}
 }
