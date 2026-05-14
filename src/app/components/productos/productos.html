@@ -23,6 +23,9 @@
   <button (click)="guardar()">Guardar</button>
   <button (click)="cancelar()">Cancelar</button>
 </div>
+<div class="buscador">
+  <input [(ngModel)]="buscador" (keyup)="filtrar()" placeholder="🔍 Buscar producto...">
+</div>
   <table>
     <thead>
       <tr>
@@ -35,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of productos">
+      <tr *ngFor="let p of prodFiltrado">
         <td>{{ p.id }}</td>
         <td>{{ p.nombre }}</td>
         <td>{{ p.categoria }}</td>

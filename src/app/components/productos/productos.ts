@@ -15,6 +15,8 @@ import { AuthService } from '../../services/auth';
 export class ProductosComponent implements OnInit {
 
   productos: any[] = [];
+  buscador: string ="";
+  prodFiltrado: any[] = []; 
   nuevoProducto = { nombre: '', categoria: '', precio: 0, stock: 0 };
   editando: boolean = false;
   productoEditando: any = { nombre: '', categoria: '', precio: 0, stock: 0 }; 
@@ -66,4 +68,9 @@ export class ProductosComponent implements OnInit {
   this.authService.cerrarSesion();
   this.router.navigate(['/login']);
 }
+  filtrar(): void {
+    this.prodFiltrado = this.productos.filter
+    ((p: any) => p.nombre.toLowerCase().includes(this.buscador.toLowerCase()) || 
+    p.categoria.toLowerCase().includes(this.buscador.toLowerCase()));
+  }
 }
