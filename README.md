@@ -37,11 +37,11 @@ Sistema web para la gestión de productos, con autenticación de usuarios y busc
 
 | Campo      | Tipo    |
 |------------|---------|
-| ID         | Número  |
-| Nombre     | Texto   |
-| Categoría  | Texto   |
-| Precio     | Decimal |
-| Stock      | Número  |
+| ID         | Long    |
+| Nombre     | String  |
+| Categoría  | String  |
+| Precio     | Double  |
+| Stock      | Int     |
 
 ---
 
