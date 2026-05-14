@@ -34,6 +34,7 @@ export class ProductosComponent implements OnInit {
   cargar(): void {
   this.http.get<any[]>('https://inventario-backend-production-102b.up.railway.app/api/productos').subscribe(data => {
     this.productos = data;
+    this.prodFiltrado = data;
     this.cd.detectChanges();
   });
 }
