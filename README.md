@@ -1,59 +1,66 @@
-# InventarioFrontend
+# 📦 Sistema de Inventario
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+Sistema web para la gestión de productos, con autenticación de usuarios y buscador en tiempo real.
 
-## Development server
+## 🚀 Demo
 
-To start a local development server, run:
+- **Frontend:** [inventario-frontend-delta.vercel.app](https://inventario-frontend-delta.vercel.app)
+- **Backend:** [inventario-backend-production-102b.up.railway.app](https://inventario-backend-production-102b.up.railway.app)
 
-```bash
-ng serve
+---
+
+## ✨ Funcionalidades
+
+- 🔐 Inicio de sesión con autenticación JWT
+- ➕ Agregar productos
+- ✏️ Editar productos
+- 🗑️ Eliminar productos
+- 🔍 Buscador en tiempo real por nombre o categoría
+
+---
+
+## 🛠️ Tecnologías
+
+### Backend
+- Java + Spring Boot
+- PostgreSQL
+- JWT para autenticación
+- Desplegado en **Railway**
+
+### Frontend
+- Angular + TypeScript
+- Desplegado en **Vercel**
+
+---
+
+## 📋 Campos de un producto
+
+| Campo      | Tipo    |
+|------------|---------|
+| ID         | Número  |
+| Nombre     | Texto   |
+| Categoría  | Texto   |
+| Precio     | Decimal |
+| Stock      | Número  |
+
+---
+
+## 🔒 Seguridad
+
+- El acceso a la tabla de productos requiere inicio de sesión
+- Cada petición al backend incluye un token JWT mediante un interceptor de Angular
+- El backend valida el token antes de responder
+
+---
+
+## 🏗️ Arquitectura
+
+```
+Usuario → Angular (Vercel) → Spring Boot (Railway) → PostgreSQL
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 👤 Autor
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Daniel Anzola
